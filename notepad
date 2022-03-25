@@ -1,0 +1,20 @@
+
+
+
+  Game
+ GRAPHIC       
+
+Graphic il possede IGAME
+
+Game -> update
+
+Core :
+
+   graphic->init();
+   game->init();
+   while (core.isRunning())
+   {
+      event = graphic.getEvent();
+      game.update(event);
+      graphic.display(game.getMap());
+   }

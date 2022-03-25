@@ -1,0 +1,103 @@
+==14063== Memcheck, a memory error detector
+==14063== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14063== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==14063== Command: ./arcade ./lib/lib_graphic_sfml.so
+==14063== 
+==14063== error calling PR_SET_PTRACER, vgdb might block
+libGL error: No matching fbConfigs or visuals found
+libGL error: failed to load driver: swrast
+sfml-graphics requires support for OpenGL 1.1 or greater
+Ensure that hardware acceleration is enabled if available
+OpenGL extension SGIS_texture_edge_clamp unavailable
+Artifacts may occur along texture edges
+Ensure that hardware acceleration is enabled if available
+==14063== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==14063==    at 0x4B6D61D: __writev (writev.c:26)
+==14063==    by 0x4B6D61D: writev (writev.c:24)
+==14063==    by 0x5664EC8: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x5665328: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x56659AF: xcb_send_request_with_fds64 (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x5665C4C: xcb_send_request (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x599E6B5: xcb_glx_render_large (in /usr/lib/x86_64-linux-gnu/libxcb-glx.so.0.0.0)
+==14063==    by 0x590C6EE: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0)
+==14063==    by 0x58EC562: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0)
+==14063==    by 0x51E1979: sf::Texture::create(unsigned int, unsigned int) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51E2180: sf::Texture::loadFromImage(sf::Image const&, sf::Rect<int> const&) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51E2422: sf::Texture::loadFromFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, sf::Rect<int> const&) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51A25A1: SfmlGraphic::SfmlGraphic() (in /home/quentin/arcade/lib/lib_graphic_sfml.so)
+==14063==  Address 0x50408e0 is 0 bytes inside a block of size 131,072 alloc'd
+==14063==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14063==    by 0x590C698: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0)
+==14063==    by 0x58EC562: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0)
+==14063==    by 0x51E1979: sf::Texture::create(unsigned int, unsigned int) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51E2180: sf::Texture::loadFromImage(sf::Image const&, sf::Rect<int> const&) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51E2422: sf::Texture::loadFromFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, sf::Rect<int> const&) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51A25A1: SfmlGraphic::SfmlGraphic() (in /home/quentin/arcade/lib/lib_graphic_sfml.so)
+==14063==    by 0x51A22B9: create_graphic (in /home/quentin/arcade/lib/lib_graphic_sfml.so)
+==14063==    by 0x10DD35: Core::setGraphic(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (Core.cpp:99)
+==14063==    by 0x10D5EA: Core::init(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (Core.cpp:23)
+==14063==    by 0x10A7EF: main (main.cpp:13)
+==14063== 
+==14063== Syscall param writev(vector[...]) points to uninitialised byte(s)
+==14063==    at 0x4B6D61D: __writev (writev.c:26)
+==14063==    by 0x4B6D61D: writev (writev.c:24)
+==14063==    by 0x5664EC8: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x5665328: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x56655B6: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x5665D62: xcb_take_socket (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x53BE29D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==14063==    by 0x53BEAFC: _XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==14063==    by 0x53C182C: _XGetRequest (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==14063==    by 0x590CEFE: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0)
+==14063==    by 0x51C0024: ??? (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51E1995: sf::Texture::create(unsigned int, unsigned int) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51E2180: sf::Texture::loadFromImage(sf::Image const&, sf::Rect<int> const&) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==  Address 0x4dc529c is 4,540 bytes inside a block of size 21,168 alloc'd
+==14063==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14063==    by 0x5664884: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x5668A2D: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x53BDB79: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==14063==    by 0x53AE318: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==14063==    by 0x521351F: ??? (in /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1)
+==14063==    by 0x521CD8B: ??? (in /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1)
+==14063==    by 0x520E3CE: ??? (in /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1)
+==14063==    by 0x51DFC72: sf::Texture::Texture() (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51A2416: SfmlGraphic::SfmlGraphic() (in /home/quentin/arcade/lib/lib_graphic_sfml.so)
+==14063==    by 0x51A22B9: create_graphic (in /home/quentin/arcade/lib/lib_graphic_sfml.so)
+==14063==    by 0x10DD35: Core::setGraphic(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (Core.cpp:99)
+==14063== 
+Failed to enable udev monitor, joystick connections and disconnections won't be notified: -22
+Warning: The created OpenGL context does not fully meet the settings that were requested
+Requested: version = 1.1 ; depth bits = 0 ; stencil bits = 0 ; AA level = 0 ; core = false ; debug = false ; sRGB = false
+Created: version = 0.0 ; depth bits = 0 ; stencil bits = 0 ; AA level = 0 ; core = false ; debug = false ; sRGB = false
+Setting vertical sync failed
+==14063== 
+==14063== Process terminating with default action of signal 2 (SIGINT)
+==14063==    at 0x4B6BAFD: poll (poll.c:29)
+==14063==    by 0x5664C19: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x5665328: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x56655B6: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x5665D62: xcb_take_socket (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==14063==    by 0x53BE29D: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==14063==    by 0x53BEAFC: _XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==14063==    by 0x53C182C: _XGetRequest (in /usr/lib/x86_64-linux-gnu/libX11.so.6.3.0)
+==14063==    by 0x590CEFE: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0.0.0)
+==14063==    by 0x51C0024: ??? (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51E1501: sf::Texture::bind(sf::Texture const*, sf::Texture::CoordinateType) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063==    by 0x51D975C: sf::RenderTarget::applyTexture(sf::Texture const*) (in /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1)
+==14063== 
+==14063== HEAP SUMMARY:
+==14063==     in use at exit: 1,392,622 bytes in 4,350 blocks
+==14063==   total heap usage: 53,303 allocs, 48,953 frees, 88,435,223 bytes allocated
+==14063== 
+==14063== LEAK SUMMARY:
+==14063==    definitely lost: 2,168 bytes in 1 blocks
+==14063==    indirectly lost: 49,680 bytes in 270 blocks
+==14063==      possibly lost: 1,824 bytes in 6 blocks
+==14063==    still reachable: 1,338,950 bytes in 4,073 blocks
+==14063==         suppressed: 0 bytes in 0 blocks
+==14063== Rerun with --leak-check=full to see details of leaked memory
+==14063== 
+==14063== Use --track-origins=yes to see where uninitialised values come from
+==14063== For lists of detected and suppressed errors, rerun with: -s
+==14063== ERROR SUMMARY: 31 errors from 2 contexts (suppressed: 2 from 2)
